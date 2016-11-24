@@ -7,7 +7,7 @@ RUN yum -y update && \
 	yum -y install httpd
 	
 # Modificaciones para SOLUTIONS
-RUN sed -i -e 's/Options Indexes FollowSymLinks/Options Indexes FollowSymLinks\n        IndexOptions FancyIndexing NameWidth=*\n        AddIcon \/usr\/share\/httpd\/icons\/text.gif .log\n        AddIcon \/usr\/share\/httpd\/icons\/dir.gif \^\^DIRECTORY\^\^/g' /etc/httpd/conf/httpd.conf && \
+RUN sed -i -e 's/Options Indexes FollowSymLinks/Options Indexes FollowSymLinks\n        IndexOptions FancyIndexing NameWidth=*\n        AddIcon ..\/icons\/text.gif .log\n        AddIcon ..\/icons\/dir.gif \^\^DIRECTORY\^\^/g' /etc/httpd/conf/httpd.conf && \
 	sed -i -e ':a;N;$!ba;s/Require all granted/#Require all granted\n    Order allow,deny\n    Allow from all\n        AuthType Basic\n        AuthName \"Restricted Files\"\n        AuthBasicProvider file\n        AuthUserFile \"\/etc\/httpd\/pwd\/password\"\n        Require user *USER\n/2' /etc/httpd/conf/httpd.conf && \
 	echo "" >> /etc/httpd/conf/httpd.conf && \
 	echo "<Directory \"/usr/share/httpd/icons\">" >> /etc/httpd/conf/httpd.conf && \
