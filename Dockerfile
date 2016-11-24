@@ -26,7 +26,7 @@ RUN chmod 777 /etc/httpd/httpd.sh && \
 	sed -i -e 's/\r$//' /etc/httpd/httpd.sh
 	
 # Volumen para el httpd
-VOLUMEN /var/www/html
+VOLUME /var/www/html
 
 # Puertos de salida del httpd
 EXPOSE 80
