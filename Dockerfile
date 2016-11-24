@@ -16,7 +16,7 @@ RUN sed -i -e 's/Options Indexes FollowSymLinks/Options Indexes FollowSymLinks\n
 	echo "    Order allow,deny" >> /etc/httpd/conf/httpd.conf && \
 	echo "    Allow from all" >> /etc/httpd/conf/httpd.conf && \
 	echo "</Directory>" >> /etc/httpd/conf/httpd.conf && \
-	mkdir /etc/httpd/pwdvim && \
+	mkdir /etc/httpd/pwd && \
 	echo "" > /etc/httpd/pwd/password
 
 # Script de arranque
