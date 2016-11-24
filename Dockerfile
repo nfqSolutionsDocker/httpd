@@ -16,6 +16,10 @@ RUN sed -i -e 's/Options Indexes FollowSymLinks/Options Indexes FollowSymLinks\n
 	echo "    Order allow,deny" >> /etc/httpd/conf/httpd.conf && \
 	echo "    Allow from all" >> /etc/httpd/conf/httpd.conf && \
 	echo "</Directory>" >> /etc/httpd/conf/httpd.conf && \
+	sed -i -e 's/<LocationMatch \"\^\/+\$\">/#<LocationMatch \"\^\/+\$\">/g' /etc/httpd/conf.d/welcome.conf && \
+	sed -i -e 's/Options -Indexes/#Options -Indexes/g' /etc/httpd/conf.d/welcome.conf && \
+	sed -i -e 's/ErrorDocument 403 \/.noindex.html/#ErrorDocument 403 \/.noindex.html/g' /etc/httpd/conf.d/welcome.conf && \
+	sed -i -e 's/<\/LocationMatch>/#<\/LocationMatch>/g' /etc/httpd/conf.d/welcome.conf && \
 	mkdir /etc/httpd/pwd && \
 	echo "" > /etc/httpd/pwd/password
 
