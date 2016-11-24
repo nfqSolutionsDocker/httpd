@@ -10,7 +10,7 @@ app:
  image: nfqsolutions/httpd
  restart: always
  ports:
-  - "80:8080"
+  - "8080:80"
  environment:
   - PACKAGES=
   - USER=solutions
